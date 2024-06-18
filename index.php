@@ -14,6 +14,8 @@
 </header>
 <?php
 require "./header.php";
+require "vendor/autoload.php";
+require "User.php";
 //var_dump($_SERVER);
 session_start();
 
@@ -21,10 +23,13 @@ session_start();
 $pass = '';
 $db = new PDO ('mysql:host=localhost;dbname=arcadia',$user, $pass);*/
 
-$dbhost = $_ENV['DB_HOST'] = 'localhost';
-$dbname = $_ENV['DB_NAME'] = 'env';
-$dbuser = $_ENV['DB_USER'] = 'root';
-$dbpassword = $_ENV['DB_PASSWORD'] = 'root';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
+$dotenv -> load();
+
+$dbhost = $_ENV['DB_HOST'];
+$dbname = $_ENV['DB_NAME'];
+$dbuser = $_ENV['DB_USER'];
+$dbpassword = $_ENV['DB_PASSWORD'];
 
 try {
     $pdo = new PDO("mysql:$dbhost;dbname:$dbname", $dbuser, $dbpassword);

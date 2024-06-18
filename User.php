@@ -4,8 +4,6 @@ class User
 {
     protected int $role_id;
 
-
-
     protected string $username;
 
     protected string $name;

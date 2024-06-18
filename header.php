@@ -16,8 +16,8 @@
 <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
         <li class="nav-item"><a href="index.php" class="nav-link link-body-emphasis px-2 active" aria-current="page">Accueil</a></li>
-        <li class="nav-item"><a href="service.php" class="nav-link link-body-emphasis px-2">Services</a></li>
-        <li class="nav-item"><a href="habitat.php" class="nav-link link-body-emphasis px-2">Habitats</a></li>
+        <li class="nav-item"><a href="Service.php" class="nav-link link-body-emphasis px-2">Services</a></li>
+        <li class="nav-item"><a href="Accomodation.php" class="nav-link link-body-emphasis px-2">Habitats</a></li>
         <li class="nav-item"><a href="avis.php" class="nav-link link-body-emphasis px-2">Avis</a></li>
         <li class="nav-item"><a href="contact.php" class="nav-link link-body-emphasis px-2">Contact</a></li>
     </ul>
