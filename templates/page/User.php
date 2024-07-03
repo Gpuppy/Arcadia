@@ -1,16 +1,54 @@
 <?php
 
+
 class User
 {
-    protected int $role_id;
+    private int $role_id;
 
-    protected string $username;
+    private string $username;
 
-    protected string $name;
+    public function __construct()
+    {
 
-    protected string $surname;
+    }
 
-    protected string $password;
+    /**
+     * @return int
+     */
+    public function getRoleId(): int
+    {
+        return $this->role_id;
+    }
+
+    /**
+     * @param int $role_id
+     */
+    public function setRoleId(int $role_id): void
+    {
+        $this->role_id = $role_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    private string $name;
+
+    private string $surname;
+
+    private string $password;
 
     /**
      * @return string

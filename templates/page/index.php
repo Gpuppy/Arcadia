@@ -13,17 +13,35 @@
 
 </header>
 <?php
-require "./header.php";
-require "vendor/autoload.php";
-require "User.php";
-//var_dump($_SERVER);
+
+use Class\Animal\Animal;
+
+//require '../vendor/composer/autoload.php';
+
 session_start();
+
+define("BASE_URL", '/App');
+
+
+require_once 'App/Controller/HomeController.php';
+require "./header.php";
+require __DIR__ . "/vendor/autoload.php";
+require "User.php";
+require "Animal.php";
+
+//$animal1 = new Animal();
+//$animal1->setName("Joe");
+
+//var_dump($animal1);
+
+
+
 
 /*$user = 'roots';
 $pass = '';
 $db = new PDO ('mysql:host=localhost;dbname=arcadia',$user, $pass);*/
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv -> load();
 
 $dbhost = $_ENV['DB_HOST'];
@@ -31,13 +49,21 @@ $dbname = $_ENV['DB_NAME'];
 $dbuser = $_ENV['DB_USER'];
 $dbpassword = $_ENV['DB_PASSWORD'];
 
-try {
+/*try {
     $pdo = new PDO("mysql:$dbhost;dbname:$dbname", $dbuser, $dbpassword);
     echo " Connexion à la base de données";
 }
 catch (PDOException $e) {
     echo "erreur de connection" .$e->getMessage();
+}*/
+
+/*try {
+
 }
+catch(){
+
+}*/
+
 ?>
 
 <main>
