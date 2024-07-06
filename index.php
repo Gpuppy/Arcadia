@@ -89,6 +89,19 @@ $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($jawsdb_server, $jawsdb_username, $jawsdb_password, $jawsdb_db);
 
+// Add Database connection to Container
+$container->set(PDO::class, function() {
+    $dburl = parse_url(getenv('DATABASE_URL') ?: throw new Exception('no DATABASE_URL'));
+    return new PDO(sprintf(
+        "pgsql:host=%s;port=%s;dbname=%s;user=%s;password=%s",
+        $dburl['host'],
+        $dburl['port'],
+        ltrim($dburl['path'], '/'), // URL path is the DB name, must remove leading slash
+        $dburl['user'],
+        $dburl['pass'],
+    ));
+});
+
 
 /*try {
     $pdo = new PDO("mysql:$dbhost;dbname:$dbname", $dbuser, $dbpassword);
