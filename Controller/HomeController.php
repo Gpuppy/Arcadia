@@ -4,7 +4,7 @@ class HomeController {
 
     public function index()
     {
-        require_once 'index.php';
+        require_once 'public/index.php';
     }
 
 }
