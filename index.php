@@ -77,6 +77,19 @@ $dbname = $_ENV['DB_NAME'];
 $dbuser = $_ENV['DB_USER'];
 $dbpassword = $_ENV['DB_PASSWORD'];
 
+
+//Get Heroku JawsDB connection information
+$jawsdb_url = parse_url(getenv("JAWSDB_DATABASE_URL"));
+$jawsdb_server = $jawsdb_url["host"];
+$jawsdb_username = $jawsdb_url["user"];
+$jawsdb_password = $jawsdb_url["pass"];
+$jawsdb_db = substr($jawsdb_url["path"], 1);
+$active_group = 'default';
+$query_builder = TRUE;
+// Connect to DB
+$conn = mysqli_connect($jawsdb_server, $jawsdb_username, $jawsdb_password, $jawsdb_db);
+
+
 /*try {
     $pdo = new PDO("mysql:$dbhost;dbname:$dbname", $dbuser, $dbpassword);
     echo " Connexion à la base de données";
