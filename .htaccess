@@ -1,2 +1,17 @@
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php
+
+RewriteRule ^\.htaccess$ - [F]
+
+RewriteCond %{REQUEST_URI} =""
+RewriteRule ^.*$ /webroot/index.php [NC,L]
+
+RewriteCond %{REQUEST_URI} !^/webroot/.*$
+RewriteRule ^(.*)$ /webroot/$1
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^public/.*$ /webroot/index.php [NC,L]
+
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php
