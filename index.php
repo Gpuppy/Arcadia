@@ -69,7 +69,7 @@ $controller->$action();
 $pass = '';
 $db = new PDO ('mysql:host=localhost;dbname=arcadia',$user, $pass);*/
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
 $dotenv -> load();
 
 $dbhost = $_ENV['DB_HOST'];
