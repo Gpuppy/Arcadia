@@ -14,7 +14,9 @@
 </header>
 <?php
 
+use Mysqli;
 use Class\Animal\Animal;
+use Dotenv\Dotenv;
 
 //require '../vendor/composer/autoload.php';
 
