@@ -1,39 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcadia</title>
-</head>
-
-<body>
-<header>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</header>
 <?php
 
-use Mysqli;
-use Class\Animal\Animal;
-use Dotenv\Dotenv;
+//use Mysqli;
 
-//require '../vendor/composer/autoload.php';
+require_once 'vendor/autoload.php';
 
 session_start();
 
 define("BASE_URL", '/arcadia');
 
+$loader = new Twig\Loader\FilesystemLoader(__DIR__. '/templates');
+$twig = new Twig\Environment($loader);
+
 require_once 'Router.php';
 require_once 'Controller/HomeController.php';
-require "./header.php";
-require "./footer.php";
+require "./templates/header.php";
+require "./templates/index.html.twig";
+require "./templates/footer.php";
 require __DIR__ . "/vendor/autoload.php";
 //require "User.php";
-require "Animal.php";
+require "Entity/Animal.php";
 require_once "Controller/HomeController.php";
 require_once "Controller/UserController.php";
 require_once "Controller/LogoutController.php";
+
 
 
 $router = new Router();
@@ -120,36 +109,4 @@ catch(){
 
 }*/
 
-?>
-
-<main>
-    <h3 class="text-center">Bienvenue au Zoo Arcadia</h3>
-
-    <div class="container text-center">
-    <div class="row align-items-start">
-    <div class="col">
-    <img="">
-    </div>
-
-        <div class="col">
-            <img="">
-        </div>
-
-        <div class="col">
-            <img="">
-        </div>
-        </div>
-    </div>
-
-
-</main>
-<footer>
-    <?php
-    require "./footer.php";
-    ?>
-</footer>
-
-</body>
-
-
-</html>
+require "./templates/footer.php";

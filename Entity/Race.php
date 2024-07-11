@@ -1,6 +1,5 @@
 <?php
 
-namespace Class\Race;
 
 class Race
 {
