@@ -6,7 +6,7 @@ require "./templates/header.php";?>
 
 <form action="" method="post">
     <div class="mb-3">
-        <label for="email" class="form-label">email</label>
+        <label for="email" class="form-label">Username</label>
         <input type="email" name="email" id="email" class="form-control" placeholder="email">
     </div>
 
