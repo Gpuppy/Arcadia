@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
-    "ajv": "^7.2.4"
+    "ajv": "^7.2.4",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^9.6.0"
   }
 }
