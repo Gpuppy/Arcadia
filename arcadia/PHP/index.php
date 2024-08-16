@@ -1,11 +1,11 @@
-<!--?php
- $pdo = new PDO("mysql:dbname=arcadia;host=localhost;charset=utf8", "root","root");
- $stmt = $pdo->query("SELECT * FROM animal");
+<?php
+$pdo = new PDO("mysql:dbname=arcadia;host=localhost;charset=utf8", "root","root");
+$stmt = $pdo->query("SELECT * FROM animal");
 $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
- $stmt->closeCursor();
- print_r($animals);
+$stmt->closeCursor();
+print_r($animals);
 
-?-->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,8 @@ $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title></title>
 </head>
 <body>
-
+<?= $infos; ?>
+<script src="src/components/Animals.js"></script>
 </body>
 </html>
 
