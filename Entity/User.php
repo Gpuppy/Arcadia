@@ -1,7 +1,12 @@
 <?php
 
+
 class User
 {
+    private $dbConn;
+
+    private $pdo;
+
     private int $id;
     private int $role_id;
 
@@ -12,8 +17,10 @@ class User
 
     public function __construct()
     {
-
+        //require_once "arcadia.php";
+        //$this->pdo = new PDO
     }
+
 
     /**
      * @return int

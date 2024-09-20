@@ -4,6 +4,7 @@ class Animal
 {
 
     private int $id;
+
     private string $name;
     private string $state;
 

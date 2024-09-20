@@ -1,4 +1,15 @@
 <?php
+$pdo = new PDO("mysql:dbname=arcadia;host=localhost;charset=utf8", "root","root");
+$query = $pdo->query("SELECT * FROM user");
+$users = $query->fetchAll(PDO::FETCH_ASSOC);
+
+//$animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//print_r($animals);
+//$stmt->closeCursor();
+//print_r($animals);
+//$infos = json_encode($animals);
+
+var_dump($users);
 
 //use Mysqli;
 
@@ -22,6 +33,9 @@ require "Entity/Animal.php";
 require_once "Controller/HomeController.php";
 require_once "Controller/UserController.php";
 require_once "Controller/LogoutController.php";
+require_once "./src/animals.js";
+require_once "./templates/auth/Authentification.php" ;
+
 
 
 
@@ -33,6 +47,7 @@ $router->addRoute('GET', BASE_URL. '/', 'LoginController', 'login');
 $router->addRoute('GET', BASE_URL. '/', 'LogoutController', 'logout');
 $router->addRoute('GET', BASE_URL. '/', 'ServiceController', 'service');
 $router->addRoute('GET', BASE_URL. '/', 'ContactController', 'contact');
+//$router->addRoute('GET', BASE_URL. '/', 'ContactController', 'contact');
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
@@ -40,7 +55,7 @@ $handler = $router->gethandler($method, $uri);
 
 if($handler == null){
 
-    header('HTTP/1.1 404 not found');
+    //header('HTTP/1.1 404 not found');
     exit();
 
 }
@@ -50,15 +65,7 @@ $controller->$action();
 
 //$animal1 = new Animal();
 //$animal1->setName("Joe");
-
 //var_dump($animal1);
-
-
-
-
-/*$user = 'roots';
-$pass = '';
-$db = new PDO ('mysql:host=localhost;dbname=arcadia',$user, $pass);*/
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . 'index.php/');
 $dotenv -> load();
@@ -94,13 +101,14 @@ $container->set(PDO::class, function() {
 });
 
 
-/*try {
+
+try {
     $pdo = new PDO("mysql:$dbhost;dbname:$dbname", $dbuser, $dbpassword);
     echo " Connexion à la base de données";
 }
 catch (PDOException $e) {
     echo "erreur de connection" .$e->getMessage();
-}*/
+}
 
 /*try {
 
@@ -108,5 +116,9 @@ catch (PDOException $e) {
 catch(){
 
 }*/
+?>
 
+
+<?php
 require "./templates/footer.php";
+?>

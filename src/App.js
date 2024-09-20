@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import './src/animals.js';
+import { createRoot } from 'react-dom/client';
+
 
 function App() {
   return (
@@ -23,3 +26,5 @@ function App() {
 }
 
 export default App;
+
+

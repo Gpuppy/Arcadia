@@ -22,7 +22,9 @@
         <li class="nav-item"><a href="/Entity/Contact.php" class="nav-link link-body-emphasis px-2">Contact</a></li>
     </ul>
     <ul class="nav">
-        <li class="nav-item"><a href="../login.php" class="nav-link link-body-emphasis px-2">Login</a></li>
-        <li class="nav-item"><a href="../signup.php" class="nav-link link-body-emphasis px-2">S'inscrire</a></li>
+        <a class="btn btn-success" href="../login.php" role="button">Admin</a>
+        <!--li class="nav-item"><a href="../login.php" class="nav-link link-body-emphasis px-2">Login</a></li>
+        <li class="nav-item"><a href="../signup.php" class="nav-link link-body-emphasis px-2">S'inscrire</a></li-->
+
     </ul>
 </div>
